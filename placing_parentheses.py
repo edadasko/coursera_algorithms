@@ -1,8 +1,14 @@
-# Maximum Value of an Arithmetic Expression
-# Task: Find the maximum value of an arithmetic expression by specifying the order of applying its arithmetic operations using additional parentheses.
-# Input Format. The only line of the input contains a string s of length 2n+ 1 for some n, with symbols s0, s1,..., s2n. Each symbol at an even position of s is a digit. (that is, an integer from 0 to 9) while each symbol at an odd position is one of three operations from {+ , — , *}.
-# Output Format. Output the maximum possible value of the given aritlnnetic expression among different orders of applying arithmetic operations.
-
+"""
+Maximum Value of an Arithmetic Expression
+Task: Find the maximum value of an arithmetic expression by specifying
+      the order of applying its arithmetic operations using additional parentheses.
+Input Format: The only line of the input contains a string s of length 2n + 1 for some n,
+               with symbols s0, s1,..., s2n. Each symbol at an even position of s is a digit.
+               (that is, an integer from 0 to 9) while each symbol at an odd position is one
+               of three operations from {+ , — , *}.
+Output Format: Output the maximum possible value of the given aritlnnetic expression among
+               different orders of applying arithmetic operations.
+"""
 import math
 
 max_table = []
