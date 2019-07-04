@@ -26,9 +26,7 @@ class Node:
 def make_tree(parents):
     size = len(parents)
     root = None
-    nodes = []
-    for i in range(size):
-        nodes.append(Node(i))
+    nodes = [Node(i) for i in range(size)]
     for i in range(size):
         if parents[i] != -1:
             nodes[parents[i]].add_child(nodes[i])
