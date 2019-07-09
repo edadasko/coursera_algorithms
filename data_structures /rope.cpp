@@ -5,9 +5,9 @@ Task. You are given a string S and you have to process n queries.
       substring S[i..j] (i and j are 0-based) from the string and then insert
       it after the k-th symbol of the remaining string (if the symbols are
       numbered from 1). If k = 0, S[i..j] is inserted in the beginning.
- Input Format. The first line contains the initial string S. The second line contains
+Input Format. The first line contains the initial string S. The second line contains
                the number of queries q. Next q lines contain triples of integers i, j, k.
- Output Format. Output the string after all 𝑞 queries.
+Output Format. Output the string after all 𝑞 queries.
 */
 
 #include <iostream>
@@ -31,7 +31,6 @@ public:
     }
     
     Rope(std::string s){
-        s = s;
         length = (int)s.size();
         root = new Vertex(length, s[0], NULL, NULL, NULL);
         Vertex* v = root;
@@ -70,7 +69,6 @@ public:
 private:
     Vertex* root;
     int length;
-    std::string s;
     
     void _update(Vertex* v){
         if (v == NULL) return;
@@ -129,6 +127,7 @@ private:
         if (v == NULL) return;
         while (v->parent != NULL) {
             if (v->parent->parent == NULL) {
+                // Zig
                 _small_rotation(v);
                 break;
             }
