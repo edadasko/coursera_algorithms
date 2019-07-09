@@ -73,7 +73,7 @@ private:
     void _update(Vertex* v){
         if (v == NULL) return;
         v->size = 1 + (v->left != NULL ? v->left->size : 0)
-        + (v->right != NULL ? v->right->size : 0);
+                    + (v->right != NULL ? v->right->size : 0);
         if (v == NULL) return;
         if (v->left != NULL)
             v->left->parent = v;
