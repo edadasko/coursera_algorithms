@@ -1,7 +1,3 @@
-#Uses python3
-
-import sys
-
 def dfs(adj, node):
     is_visited[node] = True
     for n in adj[node]:
