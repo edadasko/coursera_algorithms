@@ -6,12 +6,11 @@ def build_trie(patterns):
     for pattern in patterns:
         current_node = 0
         for i in range(len(pattern)):
-            if trie.get(current_node, None) is not None and \
-                trie[current_node].get(pattern[i], None) is not None:
-                    current_node = trie[current_node][pattern[i]]
+            if current_node in trie and pattern[i] in trie[current_node]:
+                current_node = trie[current_node][pattern[i]]
             else:
                 while i < len(pattern):
-                    if trie.get(current_node, None) is None:
+                    if current_node not in trie:
                         trie[current_node] = {}
                     num_of_last_letter += 1
                     trie[current_node][pattern[i]] = num_of_last_letter
@@ -34,12 +33,12 @@ def check_patterns(text, trie):
 
 def is_matching(index, text, trie):
     current_node = 0
-    while trie.get(current_node, None) is not None and index < len(text):
-        current_node = trie[current_node].get(text[index], None)
+    while current_node in trie and index < len(text):
+        current_node = trie[current_node].get(text[index])
         index += 1
         if not current_node:
             return False
-    return trie.get(current_node, None) is None
+    return not trie.get(current_node)
 
 
 text = input()
@@ -48,4 +47,3 @@ patterns = [input() for _ in range(n)]
 patterns.sort(reverse=True)
 trie = build_trie(patterns)
 print(' '.join(map(str, (check_patterns(text, trie)))))
-
